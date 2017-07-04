@@ -1,0 +1,31 @@
+# /
+*.bak
+*.d
+*.o
+*.orig
+*.pdb
+*.rej
+*.sav
+*.swp
+*.tmp
+*~
+.DS_Store
+.ccmalloc
+.svn
+/.git
+*.mrb
+*.pem
+*.sign
+*.exe
+*.ezb
+*.zip
+*.log
+bin
+
+# mrbwriter
+plato/tools/mrbwriter/app.c
+plato/tools/mrbwriter/mrbwriter
+
+# vscode-extension
+plato/tools/vscode-extension/*/node_modules/
+plato/tools/vscode-extension/*/out/
