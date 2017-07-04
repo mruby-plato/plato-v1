@@ -1,0 +1,16 @@
+# Arduino style application
+include Plato
+
+class MyApplication < MrubyApplication
+  def _setup
+    # setup devices
+    # 
+  end
+
+  def _loop
+    # background process
+  end
+end
+app = MyApplication.new
+app._setup
+app.start

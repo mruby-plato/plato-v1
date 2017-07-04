@@ -1,0 +1,123 @@
+[submodule "mruby"]
+	path = mruby
+	url = https://github.com/mruby/mruby.git
+[submodule "plato-ui"]
+	path = plato-ui
+	url = https://github.com/mruby-plato/plato-ui.git
+[submodule "mrbgems/mruby-plato-analogio"]
+	path = mrbgems/mruby-plato-analogio
+	url = https://github.com/mruby-plato-mgem/mruby-plato-analogio.git
+[submodule "mrbgems/mruby-plato-analogio-enzi"]
+	path = mrbgems/mruby-plato-analogio-enzi
+	url = https://github.com/mruby-plato-mgem/mruby-plato-analogio-enzi.git
+[submodule "mrbgems/mruby-plato-analogio-sim"]
+	path = mrbgems/mruby-plato-analogio-sim
+	url = https://github.com/mruby-plato-mgem/mruby-plato-analogio-sim.git
+[submodule "mrbgems/mruby-plato-application"]
+	path = mrbgems/mruby-plato-application
+	url = https://github.com/mruby-plato-mgem/mruby-plato-application.git
+[submodule "mrbgems/mruby-plato-ble"]
+	path = mrbgems/mruby-plato-ble
+	url = https://github.com/mruby-plato-mgem/mruby-plato-ble.git
+[submodule "mrbgems/mruby-plato-buttonswitch"]
+	path = mrbgems/mruby-plato-buttonswitch
+	url = https://github.com/mruby-plato-mgem/mruby-plato-buttonswitch.git
+[submodule "mrbgems/mruby-plato-buttonswitch-sim"]
+	path = mrbgems/mruby-plato-buttonswitch-sim
+	url = https://github.com/mruby-plato-mgem/mruby-plato-buttonswitch-sim.git
+[submodule "mrbgems/mruby-plato-digitalio"]
+	path = mrbgems/mruby-plato-digitalio
+	url = https://github.com/mruby-plato-mgem/mruby-plato-digitalio.git
+[submodule "mrbgems/mruby-plato-digitalio-enzi"]
+	path = mrbgems/mruby-plato-digitalio-enzi
+	url = https://github.com/mruby-plato-mgem/mruby-plato-digitalio-enzi.git
+[submodule "mrbgems/mruby-plato-digitalio-raspi"]
+	path = mrbgems/mruby-plato-raspi
+	url = https://github.com/mruby-plato-mgem/mruby-plato-raspi.git
+[submodule "mrbgems/mruby-plato-digitalio-sim"]
+	path = mrbgems/mruby-plato-digitalio-sim
+	url = https://github.com/mruby-plato-mgem/mruby-plato-digitalio-sim.git
+[submodule "mrbgems/mruby-plato-gpio"]
+	path = mrbgems/mruby-plato-gpio
+	url = https://github.com/mruby-plato-mgem/mruby-plato-gpio.git
+[submodule "mrbgems/mruby-plato-gpio-enzi"]
+	path = mrbgems/mruby-plato-gpio-enzi
+	url = https://github.com/mruby-plato-mgem/mruby-plato-gpio-enzi.git
+[submodule "mrbgems/mruby-plato-gpio-raspi"]
+	path = mrbgems/mruby-plato-gpio-raspi
+	url = https://github.com/mruby-plato-mgem/mruby-plato-gpio-raspi.git
+[submodule "mrbgems/mruby-plato-gpio-sim"]
+	path = mrbgems/mruby-plato-gpio-sim
+	url = https://github.com/mruby-plato-mgem/mruby-plato-gpio-sim.git
+[submodule "mrbgems/mruby-plato-gpio-whitetiger"]
+	path = mrbgems/mruby-plato-gpio-whitetiger
+	url = https://github.com/mruby-plato-mgem/mruby-plato-gpio-whitetiger.git
+[submodule "mrbgems/mruby-plato-i2c"]
+	path = mrbgems/mruby-plato-i2c
+	url = https://github.com/mruby-plato-mgem/mruby-plato-i2c.git
+[submodule "mrbgems/mruby-plato-i2c-enzi"]
+	path = mrbgems/mruby-plato-i2c-enzi
+	url = https://github.com/mruby-plato-mgem/mruby-plato-i2c-enzi.git
+[submodule "mrbgems/mruby-plato-lcd-aqm0802a"]
+	path = mrbgems/mruby-plato-lcd-aqm0802a
+	url = https://github.com/mruby-plato-mgem/mruby-plato-lcd-aqm0802a.git
+[submodule "mrbgems/mruby-plato-led"]
+	path = mrbgems/mruby-plato-led
+	url = https://github.com/mruby-plato-mgem/mruby-plato-led.git
+[submodule "mrbgems/mruby-plato-led-sim"]
+	path = mrbgems/mruby-plato-led-sim
+	url = https://github.com/mruby-plato-mgem/mruby-plato-led-sim.git
+[submodule "mrbgems/mruby-plato-machine"]
+	path = mrbgems/mruby-plato-machine
+	url = https://github.com/mruby-plato-mgem/mruby-plato-machine.git
+[submodule "mrbgems/mruby-plato-machine-enzi"]
+	path = mrbgems/mruby-plato-machine-enzi
+	url = https://github.com/mruby-plato-mgem/mruby-plato-machine-enzi.git
+[submodule "mrbgems/mruby-plato-machine-sim"]
+	path = mrbgems/mruby-plato-machine-sim
+	url = https://github.com/mruby-plato-mgem/mruby-plato-machine-sim.git
+[submodule "mrbgems/mruby-plato-rtc"]
+	path = mrbgems/mruby-plato-rtc
+	url = https://github.com/mruby-plato-mgem/mruby-plato-rtc.git
+[submodule "mrbgems/mruby-plato-rtc-mcp7940"]
+	path = mrbgems/mruby-plato-rtc-mcp7940
+	url = https://github.com/mruby-plato-mgem/mruby-plato-rtc-mcp7940.git
+[submodule "mrbgems/mruby-plato-sensor"]
+	path = mrbgems/mruby-plato-sensor
+	url = https://github.com/mruby-plato-mgem/mruby-plato-sensor.git
+[submodule "mrbgems/mruby-plato-sensor-hdc1080"]
+	path = mrbgems/mruby-plato-sensor-hdc1080
+	url = https://github.com/mruby-plato-mgem/mruby-plato-sensor-hdc1080.git
+[submodule "mrbgems/mruby-plato-sensor-tsl2591"]
+	path = mrbgems/mruby-plato-sensor-tsl2591
+	url = https://github.com/mruby-plato-mgem/mruby-plato-sensor-tsl2591.git
+[submodule "mrbgems/mruby-plato-serial"]
+	path = mrbgems/mruby-plato-serial
+	url = https://github.com/mruby-plato-mgem/mruby-plato-serial.git
+[submodule "mrbgems/mruby-plato-serial-enzi"]
+	path = mrbgems/mruby-plato-serial-enzi
+	url = https://github.com/mruby-plato-mgem/mruby-plato-serial-enzi.git
+[submodule "mrbgems/mruby-plato-sim-client"]
+	path = mrbgems/mruby-plato-sim-client
+	url = https://github.com/mruby-plato-mgem/mruby-plato-sim-client.git
+[submodule "mrbgems/mruby-plato-spi"]
+	path = mrbgems/mruby-plato-spi
+	url = https://github.com/mruby-plato-mgem/mruby-plato-spi.git
+[submodule "mrbgems/mruby-plato-spi-enzi"]
+	path = mrbgems/mruby-plato-spi-enzi
+	url = https://github.com/mruby-plato-mgem/mruby-plato-spi-enzi.git
+[submodule "mrbgems/mruby-plato-timer"]
+	path = mrbgems/mruby-plato-timer
+	url = https://github.com/mruby-plato-mgem/mruby-plato-timer.git
+[submodule "mrbgems/mruby-plato-wifi"]
+	path = mrbgems/mruby-plato-wifi
+	url = https://github.com/mruby-plato-mgem/mruby-plato-wifi.git
+[submodule "mrbgems/mruby-plato-wifi-xbee"]
+	path = mrbgems/mruby-plato-wifi-xbee
+	url = https://github.com/mruby-plato-mgem/mruby-plato-wifi-xbee.git
+[submodule "mrbgems/mruby-plato-zigbee"]
+	path = mrbgems/mruby-plato-zigbee
+	url = https://github.com/mruby-plato-mgem/mruby-plato-zigbee.git
+[submodule "mrbgems/mruby-plato-zigbee-xbee"]
+	path = mrbgems/mruby-plato-zigbee-xbee
+	url = https://github.com/mruby-plato-mgem/mruby-plato-zigbee-xbee.git

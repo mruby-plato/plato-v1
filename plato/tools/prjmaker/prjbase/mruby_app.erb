@@ -1,0 +1,23 @@
+# mruby embedded application
+include Plato
+
+class MyApplication < MrubyApplication
+  SENSING_PERIOD = 10000  # ms
+  def initialize
+    super
+    # setup devices
+    # 
+
+    # setup timer handlers
+    add_timer(SENSING_PERIOD, Proc.new {|app| app.sensing})
+  end
+
+  def sensing
+    # read/analize sensor values
+  end
+
+  def _loop
+    # background process
+  end
+end
+MyApplication.new.start

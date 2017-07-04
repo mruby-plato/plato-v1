@@ -1,0 +1,19 @@
+MRuby::GemBox.new do |conf|
+  # mruby-base64
+  conf.gem :github => 'mattn/mruby-base64'
+
+  # mruby-io
+  conf.gem :github => 'mimaki/mruby-io', :branch => 'mingw'
+
+  # mruby-json
+  conf.gem :github => 'mattn/mruby-json'
+
+  # mruby-onig-regexp
+  conf.gem :github => 'mattn/mruby-onig-regexp'
+
+  # mruby-serialport
+  conf.gem :github => 'mimaki/mruby-serialport', :branch => 'mingw'
+
+  # mruby-sleep
+  conf.gem :github => 'matsumoto-r/mruby-sleep'
+end

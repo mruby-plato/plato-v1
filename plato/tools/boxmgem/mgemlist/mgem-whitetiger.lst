@@ -1,0 +1,1 @@
+{"mrbgems":[{"name":"mruby-plato-gpio-whitetiger","description":"Plato::GPIO class for White-Tiger sensor board","author":"plato developers","license":"MIT","repository":"../mrbgems/mruby-plato-gpio-whitetiger","dependencies":[{"name":"mruby-plato-gpio"}]}]}

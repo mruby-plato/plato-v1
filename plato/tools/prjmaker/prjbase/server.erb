@@ -1,0 +1,47 @@
+# Plato rapid application - send to server
+include Plato
+
+class Array
+  def average
+    self.inject(0) {|s, v| s += v} / self.size
+  end
+end
+
+class MyApplication < MrubyApplication
+  SENSING_PERIOD = <%=sensing_period %>
+  SEND_PERIOD = <%=send_period %>
+<%=server_uri %>
+  def initialize
+    super
+    @temp, @humi, @illu = [], [], []
+    # setup devices
+    @rtc = PlatoDevice::MCP7940.new     # Real Time Clock
+    @tmphum = PlatoDevice::HDC1080.new  # Temperature/Humidity sensor
+    @illumi = PlatoDevice::TSL2591.new  # Illuminance sensor
+    @comdev = <%=comdev %> <%=compara %>
+    <%=comcon %>
+    # setup timer handlers
+    add_timer(SENSING_PERIOD, Proc.new {|app| app.sensing})
+    add_timer(SEND_PERIOD,    Proc.new {|app| app.send_values})
+  end
+
+  def sensing
+    @temp << @tmphum.temperature
+    @humi << @tmphum.humidity
+    @illu << @illumi.read
+  end
+
+  def send_values
+    t = @rtc.get_time
+    time = sprintf("%4d-%02d-%02d %02d:%02d:%02d", t[0], t[1], t[2], t[3], t[4], t[5])
+    # format values
+    values = <%=values %>
+<%=action_script %>
+    @temp.clear
+    @humi.clear
+    @illu.clear
+  end
+
+  def _loop; end
+end
+MyApplication.new.start

@@ -1,0 +1,70 @@
+# Plato rapid application - sensor trigger
+include Plato
+
+class MyApplication < MrubyApplication
+  SENSING_PERIOD = <%=sensing_period %>
+  INTERVAL = <%=interval %>
+<%=server_uri %>
+  def initialize
+    super
+    @signaled = false
+    @cont_times = 0
+    # setup devices
+    @rtc = PlatoDevice::MCP7940.new     # Real Time Clock
+    @tmphum = PlatoDevice::HDC1080.new  # Temperature/Humidity sensor
+    @illumi = PlatoDevice::TSL2591.new  # Illuminance sensor
+    @comdev = <%=comdev %> <%=compara %>
+    <%=comcon %>
+    # setup timer handlers
+    timer_proc = Proc.new {|app|
+      # sensing
+      v = app.sensing
+      # check trigger
+      trigger = app.trigger(v)
+      app.action(v) if trigger == :positive
+<%=negative_edge %>    }
+    add_timer(SENSING_PERIOD, timer_proc)
+  end
+
+  def sensing
+    tm, hu = @tmphum.read
+    il = @illumi.read
+    [tm, hu, il]
+  end
+
+<%=within_term %>
+  def trigger(v)
+    presig = @signaled
+    <%=check_time_zone %>
+
+    # check trigger
+    temp,humi,illu = v
+    <%=trigger %>
+      @signaled = true
+      return :positive if !presig     # check positive edge
+      <%=onetime %>
+    else
+      @signaled = false
+      @cont_times = 0
+      return presig ? :negative : nil # check negative edge
+    end
+
+    # check interval
+    @cont_times += 1
+    return nil if @cont_times < INTERVAL
+    @cont_times = 0
+    :positive
+  end
+
+  def action(v, edge=:positive)
+    temp, humi, illu = v
+    t = @rtc.get_time
+    time = sprintf("%4d-%02d-%02d %02d:%02d:%02d", t[0], t[1], t[2], t[3], t[4], t[5])
+    # format values
+    values = <%=values %>
+<%=action_script %>  end
+
+  def _loop
+  end
+end
+MyApplication.new.start

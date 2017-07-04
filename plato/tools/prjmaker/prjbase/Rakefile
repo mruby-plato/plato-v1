@@ -1,0 +1,51 @@
+require 'json'
+
+app_dir = File.dirname(__FILE__)
+plato_dir = File.join(app_dir, '..')
+
+# Get Plato environment ($HOME/.plato/plato.cfg)
+plato_env = File.join(Dir.home, '.plato', 'plato.cfg')
+begin
+  env = JSON::parse(File.read(plato_env))
+rescue
+  env = {}
+end
+# get project root directory
+plato_root = env && env['instdir'] ? env['instdir'] : plato_dir
+# TOOLS
+PLATO_TOOL  = File.join(plato_root, '.plato', 'tools')
+ENZIC       = File.join(PLATO_TOOL, 'enzic')
+BOXMRBGEM   = File.join(PLATO_TOOL, 'boxmrbgem.rb')
+MKMRBLIB    = File.join(PLATO_TOOL, 'mkmrblib.rb')
+RECEIVER    = File.join(PLATO_TOOL, 'receiver.rb')
+# target
+MRBGEMS     = File.join(app_dir, 'mrblib', 'mrbgems.rb')
+TARGET_BIN  = File.join(app_dir, 'bin', 'enzi.ezb')
+APP_RB      = File.join(app_dir, 'app.rb')
+APP_CFG     = File.join(app_dir, 'app.cfg')
+MRUBY       = File.join(plato_dir, 'mruby', 'bin', 'mruby')
+
+# Load application configuration
+cfg = JSON::parse(File.read(APP_CFG))
+optbrd = cfg['option_board'].map {|opt|
+  opt['model'].gsub('-','').downcase
+}
+
+task:default => TARGET_BIN
+
+file MRBGEMS => [File.join(app_dir, 'selected-mrbgems.lst')] do
+  sh "ruby #{BOXMRBGEM} #{app_dir} #{cfg['target_board']} #{optbrd.join(" ")}"
+  sh "ruby #{MKMRBLIB} #{app_dir}"
+end
+
+file TARGET_BIN => [RECEIVER, MRBGEMS, APP_RB] do
+  sh "#{ENZIC} -o #{TARGET_BIN} #{RECEIVER} #{MRBGEMS} #{APP_RB}"
+end
+
+task:mruby => MRUBY
+
+file MRUBY => [MRBGEMS] do
+  sh "MRUBY_CONFIG=#{File.join(app_dir, 'user_build_config.rb')} make -C #{File.join('..', 'mruby')}"
+end
+
+task:all => [TARGET_BIN, MRUBY]
