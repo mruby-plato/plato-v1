@@ -16,9 +16,6 @@
 [submodule "mrbgems/mruby-plato-application"]
 	path = mrbgems/mruby-plato-application
 	url = https://github.com/mruby-plato-mgem/mruby-plato-application.git
-[submodule "mrbgems/mruby-plato-ble"]
-	path = mrbgems/mruby-plato-ble
-	url = https://github.com/mruby-plato-mgem/mruby-plato-ble.git
 [submodule "mrbgems/mruby-plato-buttonswitch"]
 	path = mrbgems/mruby-plato-buttonswitch
 	url = https://github.com/mruby-plato-mgem/mruby-plato-buttonswitch.git
@@ -32,8 +29,8 @@
 	path = mrbgems/mruby-plato-digitalio-enzi
 	url = https://github.com/mruby-plato-mgem/mruby-plato-digitalio-enzi.git
 [submodule "mrbgems/mruby-plato-digitalio-raspi"]
-	path = mrbgems/mruby-plato-raspi
-	url = https://github.com/mruby-plato-mgem/mruby-plato-raspi.git
+	path = mrbgems/mruby-plato-digitalio-raspi
+	url = https://github.com/mruby-plato-mgem/mruby-plato-digitalio-raspi.git
 [submodule "mrbgems/mruby-plato-digitalio-sim"]
 	path = mrbgems/mruby-plato-digitalio-sim
 	url = https://github.com/mruby-plato-mgem/mruby-plato-digitalio-sim.git
