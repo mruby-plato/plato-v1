@@ -1,4 +1,6 @@
-# Application receiver for enzi
+# Application receiver for Plato
+include Plato
+
 class AppReceiver
   BOARD_NAME    = 'enzi'
   DATA_TYPE     = 'H'     # Hex format
@@ -7,7 +9,7 @@ class AppReceiver
 	RSPSTART      = '#'
 	CMDVERSION    = 'V'
 	CMDSIZE       = 'S'
-	SW            = A3      # BTA SW on WhiteTiger
+	SW            = GPIO::A3 # BTA SW on WhiteTiger
   APPFILE       = 'enzi.ezb'
   BUFSIZE       = 1000
   MODE_WAIT     = 1000    # Wait time
@@ -90,13 +92,14 @@ class AppReceiver
 end
 
 # Check write mode
-tout = millis + AppReceiver::MODE_WAIT
-while tout > millis
-  if digitalRead(AppReceiver::SW) == LOW
+tout = Machine.millis + AppReceiver::MODE_WAIT
+btn = DigitalIO.new(AppReceiver::SW)
+while tout > Machine.millis
+  if btn.low?
     AppReceiver.new.receive
     break # dummy
   end
-  delay(1)
+  Machine.delay(1)
 end
 
 # # 

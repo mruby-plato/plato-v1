@@ -14,32 +14,41 @@ end
 plato_root = env && env['instdir'] ? env['instdir'] : plato_dir
 # TOOLS
 PLATO_TOOL  = File.join(plato_root, '.plato', 'tools')
-ENZIC       = File.join(PLATO_TOOL, 'enzic')
+mrbc        = File.join(PLATO_TOOL, 'mrbc130')
 BOXMRBGEM   = File.join(PLATO_TOOL, 'boxmrbgem.rb')
 MKMRBLIB    = File.join(PLATO_TOOL, 'mkmrblib.rb')
 RECEIVER    = File.join(PLATO_TOOL, 'receiver.rb')
 # target
 MRBGEMS     = File.join(app_dir, 'mrblib', 'mrbgems.rb')
-TARGET_BIN  = File.join(app_dir, 'bin', 'enzi.ezb')
 APP_RB      = File.join(app_dir, 'app.rb')
 APP_CFG     = File.join(app_dir, 'app.cfg')
 MRUBY       = File.join(plato_dir, 'mruby', 'bin', 'mruby')
 
 # Load application configuration
 cfg = JSON::parse(File.read(APP_CFG))
+case tarbrd = cfg['target_board']
+when 'enzi'
+  mrbc        = File.join(PLATO_TOOL, 'enzic')
+  target_bin  = File.join(app_dir, 'bin', 'enzi.ezb')
+when 'grpeach'
+  target_bin  = File.join(app_dir, 'bin', 'autorun.mrb')
+else
+  target_bin  = File.join(app_dir, 'bin', 'app.mrb')
+end
 optbrd = cfg['option_board'].map {|opt|
   opt['model'].gsub('-','').downcase
 }
 
-task:default => TARGET_BIN
+task:default => target_bin
 
 file MRBGEMS => [File.join(app_dir, 'selected-mrbgems.lst')] do
   sh "ruby #{BOXMRBGEM} #{app_dir} #{cfg['target_board']} #{optbrd.join(" ")}"
   sh "ruby #{MKMRBLIB} #{app_dir}"
 end
 
-file TARGET_BIN => [RECEIVER, MRBGEMS, APP_RB] do
-  sh "#{ENZIC} -o #{TARGET_BIN} #{RECEIVER} #{MRBGEMS} #{APP_RB}"
+file target_bin => [RECEIVER, MRBGEMS, APP_RB] do
+  # sh "#{ENZIC} -o #{TARGET_BIN} #{RECEIVER} #{MRBGEMS} #{APP_RB}"
+  sh "#{mrbc} -o #{target_bin} #{RECEIVER} #{MRBGEMS} #{APP_RB}"
 end
 
 task:mruby => MRUBY
@@ -48,4 +57,4 @@ file MRUBY => [MRBGEMS] do
   sh "MRUBY_CONFIG=#{File.join(app_dir, 'user_build_config.rb')} make -C #{File.join('..', 'mruby')}"
 end
 
-task:all => [TARGET_BIN, MRUBY]
+task:all => [target_bin, MRUBY]

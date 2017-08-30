@@ -118,3 +118,21 @@
 [submodule "mrbgems/mruby-plato-zigbee-xbee"]
 	path = mrbgems/mruby-plato-zigbee-xbee
 	url = https://github.com/mruby-plato-mgem/mruby-plato-zigbee-xbee.git
+[submodule "mrbgems/mruby-plato-digitalio-grpeach"]
+	path = mrbgems/mruby-plato-digitalio-grpeach
+	url = https://github.com/mruby-plato-mgem/mruby-plato-digitalio-grpeach.git
+[submodule "mrbgems/mruby-plato-gpio-grpeach"]
+	path = mrbgems/mruby-plato-gpio-grpeach
+	url = https://github.com/mruby-plato-mgem/mruby-plato-gpio-grpeach.git
+[submodule "mrbgems/mruby-plato-machine-grpeach"]
+	path = mrbgems/mruby-plato-machine-grpeach
+	url = https://github.com/mruby-plato-mgem/mruby-plato-machine-grpeach.git
+[submodule "mrbgems/mruby-plato-serial-grpeach"]
+	path = mrbgems/mruby-plato-serial-grpeach
+	url = https://github.com/mruby-plato-mgem/mruby-plato-serial-grpeach.git
+[submodule "mrbgems/mruby-plato-i2c-grpeach"]
+	path = mrbgems/mruby-plato-i2c-grpeach
+	url = https://github.com/mruby-plato-mgem/mruby-plato-i2c-grpeach.git
+[submodule "mrbgems/mruby-plato-spi-grpeach"]
+	path = mrbgems/mruby-plato-spi-grpeach
+	url = https://github.com/mruby-plato-mgem/mruby-plato-spi-grpeach.git

@@ -4,7 +4,7 @@
 #
 # Usage: ruby mkenv.rb [lang] [instdir]
 #   lang:     Language ID (en|ja) (default:'en')
-#   instdir:  'Plato' install directory (default:'./plato')
+#   instdir:  'Plato' install directory (default: '~/plato' or 'c:/plato')
 #
 
 require 'fileutils'
@@ -59,8 +59,8 @@ puts 'copy shells...'
 
 # $PLATO/.plato/tools
 #   boxmrbgem.rb
-#   enzic
-#   enzic.exe
+#   enzic.exe / enzic
+#   mrbc130.exe / mrbc130
 #   mkmrblib.rb
 #   mrbwriter.rb
 #   mrbwriter.exe / mrbwriter
@@ -79,7 +79,8 @@ FileUtils.mkdir_p(tools_dir)
   File.join(srcroot, 'plato', 'tools', 'mrbwriter', 'mrbwriter.cfg'),
   File.join(srcroot, 'plato', 'tools', 'mrbwriter', 'receiver.rb'),
   File.join(srcroot, 'plato', 'tools', 'prjmaker', 'prjmaker.rb'),
-  File.join(srcroot, 'plato', 'tools', 'bin', 'enzic' + $exe)
+  File.join(srcroot, 'plato', 'tools', 'bin', 'enzic' + $exe),
+  File.join(srcroot, 'plato', 'tools', 'bin', 'mrbc130' + $exe)
 ].each {|file|
   _cp(file, File.join(tools_dir, File.basename(file)))
 }

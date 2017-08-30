@@ -80,6 +80,9 @@ FileUtils.cp(mgemlist, File.join(prjdir, 'selected-mrbgems.lst'))
 # advanced: TBD
 app_type = cfg['app_type']
 
+# target board
+board = cfg['target_board']
+
 # communication device
 compara = cfg['com_para']
 comcon = nil
@@ -189,12 +192,13 @@ when 'ifttt'
   URI = "/trigger/#{action['ifttt_event']}/with/key/#{action['ifttt_key']}"
 EOS
   action['data_type'] = 'JSON'  # JSON data only
+  protcol = (board == 'enzi') ? '' : "\'http\', "
   action_script = <<"EOS"
     # send to IFTTT service
     request = {'Content-Type'=>'Application/json'}
     request['Body'] = values
     begin
-      ifttt = SimpleHttp.new(SERVER_FQDN, 80)
+      ifttt = SimpleHttp.new(#{protcol}SERVER_FQDN, 80)
       ifttt.post(URI, request)
     rescue
     end
@@ -218,12 +222,13 @@ EOS
   json_s.gsub!("\n", '')
   json_e = '}]}'
   action['data_type'] = 'JSON'
+  protcol = (board == 'enzi') ? '' : "\'http\', "
   action_script = <<"EOS"
     # send to MAGELLAN BLOCKS
     request = {'Content-Type'=>'Application/json'}
     request['Body'] = "#{json_s + '#{values}' + json_e}"
     begin
-      blks = SimpleHttp.new(SERVER_FQDN, 80)
+      blks = SimpleHttp.new(#{protocol}SERVER_FQDN, 80)
       blks.post(URI, request)
     rescue
     end
