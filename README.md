@@ -30,13 +30,13 @@ Set up the following.
 
 ```bash
 $ cd <working directory>
-$ git clone --recursive https://github.com/mruby-plato/mruby-plato.git
+$ git clone --recursive https://github.com/mruby-plato/plato.git
 ```
 
 ## 2. Setup Plato environment
 
 ```bash
-$ cd mruby-plato
+$ cd plato
 $ make [lang]
 ```
 
