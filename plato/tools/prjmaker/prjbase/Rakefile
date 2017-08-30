@@ -48,7 +48,7 @@ end
 
 file target_bin => [RECEIVER, MRBGEMS, APP_RB] do
   # sh "#{ENZIC} -o #{TARGET_BIN} #{RECEIVER} #{MRBGEMS} #{APP_RB}"
-  sh "#{mrbc} -o #{target_bin} #{RECEIVER} #{MRBGEMS} #{APP_RB}"
+  sh "#{mrbc} -o #{target_bin} #{MRBGEMS} #{RECEIVER} #{APP_RB}"
 end
 
 task:mruby => MRUBY
