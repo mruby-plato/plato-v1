@@ -42,6 +42,7 @@ optbrd = cfg['option_board'].map {|opt|
 task:default => target_bin
 
 file MRBGEMS => [File.join(app_dir, 'selected-mrbgems.lst')] do
+  optbrd.delete 'none'
   sh "ruby #{BOXMRBGEM} #{app_dir} #{cfg['target_board']} #{optbrd.join(" ")}"
   sh "ruby #{MKMRBLIB} #{app_dir}"
 end
