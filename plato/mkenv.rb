@@ -113,9 +113,9 @@ when :linux
   ['plato-linux-ia32']  # + ['plato-linux-x64']
 end.each {|target|
   plato_src = File.join(srcroot, PLATO_UI, 'bin', lang, target)
-  plato_dst = File.join(_plato_dir, target)
-  FileUtils.rm_rf(plato_dst)
-  _cp(plato_src, plato_dst)
+  $plato_dst = File.join(_plato_dir, target)
+  FileUtils.rm_rf($plato_dst)
+  _cp(plato_src, $plato_dst)
 }
 
 # $HOME/.vscode/extensions
@@ -131,9 +131,12 @@ _cp(File.join(vscext_src, 'package.json'), vscext_dst)
 _cp(File.join(vscext_src, 'out', 'src', 'extension.js'), File.join(vscext_dst, 'out', 'src'))
 # _cp(File.join(vscext_src, 'images'), vscext_dst)
 
-# Create shortcut (Windows only)
-if $platform == :windows
+# Create shortcut
+case $platform
+when :windows
   `wscript #{File.join(File.dirname($0), 'shortcut.vbs')} #{instdir}`
+when :mac
+  `ln -s #{File.join($plato_dst, 'plato.app')} #{File.join('~/Applications', 'Plato\ IDE.app')}`
 end
 
 puts $0 + ' completed.'
